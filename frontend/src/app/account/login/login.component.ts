@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
   async onSubmit() {
-    window.localStorage.setItem('token', 'meu-token')
+    window.localStorage.setItem('token2', 'meu-token')
     this.router.navigate([''])
   }
 

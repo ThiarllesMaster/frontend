@@ -12,7 +12,7 @@ export class AuthenticationGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-      const token = window.localStorage.getItem('token')
+      const token = window.localStorage.getItem('token2')
       console.log(token)
       
       if (token) {
