@@ -26,7 +26,6 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import {MatSelectModule} from '@angular/material/select';
 import { ListarLivroComponent } from './components/livro/listar-livro/listar-livro.component';
-import { ListarLivroDoisComponent } from './listar-livro-dois/listar-livro-dois.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -46,7 +45,6 @@ import { BaseLayoutComponent } from './layout/base-layout/base-layout.component'
     UtilizadorCrudComponent,
     AdicionarLivroComponent,
     ListarLivroComponent,
-    ListarLivroDoisComponent,
     MainComponent,
     AuthenticationComponent,
     LoginComponent,

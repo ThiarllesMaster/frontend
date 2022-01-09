@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Livro } from '../livro.model';
 import { LivroService } from '../livro.service';
 
@@ -10,10 +11,10 @@ import { LivroService } from '../livro.service';
 export class ListarLivroComponent implements OnInit {
 
   livros:Livro[] = []
-  displayedColumns = ['id', 'titulo', 'categoria', 'exemplares']
+  displayedColumns = ['id', 'titulo', 'categoria', 'exemplares', 'Ação']
   id: number = 0
 
-  constructor(private livroService: LivroService) { }
+  constructor(private livroService: LivroService, private router: Router) { }
 
   ngOnInit(): void {
     this.livroService.listarLivros().subscribe(livros => {
@@ -23,11 +24,12 @@ export class ListarLivroComponent implements OnInit {
   }
   
 
-  delete(){
+  delete(id: number){
     if(window.confirm('Are sure you want to delete this item ?')){
-    //put your delete method logic here
-    console.log("id")
+      this.livroService.removerLivro(id).subscribe(() => {
+        this.livroService.showMessage('Livro removido com sucesso!')        
+      })    
    } 
-
+   this.router.navigate(['/livros'])
   }
 }
