@@ -3,6 +3,5 @@ export interface Livro {
     titulo: string
     categoria: string
     exemplares: number
-    disponivel: string
     
 }

@@ -1,12 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar'
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Livro } from './livro.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LivroService {
+
+  baseUrl = environment.apiBaseUrl
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
@@ -18,7 +22,7 @@ export class LivroService {
     })
   } 
 
-  adicionarLivro(livro: Livro) {
-    
+  adicionarLivro(livro: Livro): Observable<Livro> {
+    return this.http.post<Livro>(this.baseUrl, livro)
   }
 }

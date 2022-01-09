@@ -14,7 +14,7 @@ export class LivroCrudComponent implements OnInit {
   }
 
   criarLivro():void {
-    this.router.navigate(['/livro/adicionar'])
+     this.router.navigate(['/livro/adicionar'])
   }
 
 }
