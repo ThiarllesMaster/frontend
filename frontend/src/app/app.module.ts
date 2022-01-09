@@ -30,6 +30,10 @@ import { ListarLivroDoisComponent } from './listar-livro-dois/listar-livro-dois.
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MainComponent } from './layout/main/main.component';
+import { AuthenticationComponent } from './account/authentication/authentication.component';
+import { LoginComponent } from './account/login/login.component';
+import { BaseLayoutComponent } from './layout/base-layout/base-layout.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,11 @@ import { MatSortModule } from '@angular/material/sort';
     UtilizadorCrudComponent,
     AdicionarLivroComponent,
     ListarLivroComponent,
-    ListarLivroDoisComponent
+    ListarLivroDoisComponent,
+    MainComponent,
+    AuthenticationComponent,
+    LoginComponent,
+    BaseLayoutComponent
   ],
   imports: [
     BrowserModule,
