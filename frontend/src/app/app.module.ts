@@ -20,7 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AdicionarLivroComponent } from './components/livro/adicionar-livro/adicionar-livro.component'
 import { LivroService } from './components/livro/livro.service'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { FormsModule } from '@angular/forms'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
@@ -33,6 +33,8 @@ import { MainComponent } from './layout/main/main.component';
 import { AuthenticationComponent } from './account/authentication/authentication.component';
 import { LoginComponent } from './account/login/login.component';
 import { BaseLayoutComponent } from './layout/base-layout/base-layout.component';
+import { AuthService } from './login/auth.service';
+import { AuthInterceptor } from './http-interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,8 @@ import { BaseLayoutComponent } from './layout/base-layout/base-layout.component'
     MatSelectModule, MatTableModule, MatPaginatorModule, MatSortModule
 
   ],
-  providers: [LivroService],
+  providers: [LivroService, AuthService, 
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

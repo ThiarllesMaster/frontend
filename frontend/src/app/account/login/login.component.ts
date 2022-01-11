@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/login/auth.service';
+import { Token } from '@angular/compiler/src/ml_parser/tokens';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { AuthService } from 'src/app/login/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  
   login = {
     username: '', 
     password: ''
@@ -21,7 +22,10 @@ export class LoginComponent implements OnInit {
   }
 
   async onSubmit() {
-    window.localStorage.setItem('token2', 'meu-token')
+    this.authService.login(this.login).subscribe((result) => {
+      window.localStorage.setItem('token', result.token)
+    })
+    
     this.router.navigate([''])
   }
 
